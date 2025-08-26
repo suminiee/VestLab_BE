@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.Arrays;
 
 @Slf4j
-@RestControllerAdvice //restController로 들어온 에러 처리해주는 핸들러 역할
+@RestControllerAdvice(basePackages = {
+        "com.stock.VestLab.test"
+}) //restController로 들어온 에러 처리해주는 핸들러 역할
 public class ExceptionAdvice {
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<CustomResponse<String>> customException(CustomException e) {
